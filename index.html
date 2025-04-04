@@ -115,10 +115,19 @@
 
         <form id="itemForm">
             <input type="number" id="itemValor" placeholder="💰 Valor (R$)" required>
-            <input type="date" id="itemData" required>
+            <input type="date" id="itemData" >
             <input type="text" id="itemComprador" placeholder="👤 Nome do Comprador (Opcional)">
             <button type="submit"><i class="fas fa-plus-circle"></i> Adicionar</button>
         </form>
+        
+        <script>
+            const data = new Date();
+            const ano = data.getFullYear();
+            const mes = String(data.getMonth() + 1).padStart(2, '0');
+            const dia = String(data.getDate()).padStart(2, '0');
+            const dataFormatada = `${ano}-${mes}-${dia}`;
+            document.getElementById('itemData').value = dataFormatada;
+        </script>
     </div>
 </body>
 </html>
