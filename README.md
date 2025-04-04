@@ -1,4 +1,4 @@
-###IMPLEMENTAÇÃO DE UM SISTEMA PARA UM BAZAR BENEFICENTE
+### IMPLEMENTAÇÃO DE UM SISTEMA PARA UM BAZAR BENEFICENTE
 
 - Este projeto visa criar um sistema para digitalização do registro de venda e forma de pagamento dos produtos vendidos pelo bazar beneficente,
 com o objetivo de organizar o processo, além de fornecer uma visão geral do lucro semanal e mensal. A proposta da implementação deste sistema
