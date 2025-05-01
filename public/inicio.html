@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ffd1dc, #ffb6c1, #ffc0cb);
+            background-color: white;
             color: #333;
             margin: 0;
             padding: 20px;
@@ -22,7 +22,7 @@
             background: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px #F5AAC8;
         }
         h2 {
             background: rgba(255, 182, 193, 0.5);
@@ -40,7 +40,7 @@
             background: white;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px #F5005A;
             text-align: center;
             cursor: pointer;
             width: 100px;
@@ -51,7 +51,7 @@
         }
         .category i {
             font-size: 30px;
-            color: #ff69b4;
+            color: #F5AAC8;
         }
         .category p {
             margin: 5px 0 0;
@@ -59,6 +59,7 @@
         }
         form {
             background: white;
+            color: #333;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -71,8 +72,8 @@
             border: 1px solid #ddd;
         }
         button {
-            background: #ff69b4;
-            color: white;
+            background: #F5AAC8;
+            color: #333;
             font-size: 16px;
             border: none;
             cursor: pointer;
@@ -82,11 +83,12 @@
             gap: 8px;
         }
         button:hover {
-            background: #ffb6c1;
+            background: #F2C2CF;
         }
         /* Estilo específico para o botão de sair */
         .btn-sair {
-        background: #ff4757;
+        background: #F5AAC8;
+        color: #333;
         padding: 5px 10px;  /* Reduzi o padding */
         font-size: 12px;   /* Aumentei um pouco o tamanho da fonte para ficar legível */
         margin-left: 10px;  /* Ajuste a margem conforme necessário */
@@ -96,7 +98,7 @@
     }
     
     .btn-sair:hover {
-        background: #ff6b81;
+        background: #F2C2CF;
     }
     
     .btn-sair i {
@@ -106,25 +108,21 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffb6c1;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#F6EAEE; border-radius: 10px;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Bazar Beneficente</a>
+            <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Início</a>
+                        <a class="nav-link active" href="#" style="color: #333;">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
+                        <a class="nav-link" href="#" style="color: #333;">Contato</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-light" type="submit">Buscar</button>
-                </form>
                 <!-- Botão de Sair Adicionado Aqui -->
                 <button class="btn btn-sair ms-2" onclick="sair()">
                     <i class="fas fa-sign-out-alt"></i> Sair
@@ -132,14 +130,16 @@
             </div>
         </div>
     </nav>
-    
+    <br>
+    <br>
     <div class="container">
-        <h2>Bazar Beneficente</h2>
+        <h3>Vendas</h3>
 
         <form id="itemForm">
             <input type="number" id="itemValor" placeholder="💰 Valor (R$)" required>
             <input type="date" id="itemData">
             <input type="text" id="itemComprador" placeholder="👤 Nome do Comprador (Opcional)">
+            <input type="text" id="itemTelefone" placeholder="Número de telefone (Opcional)">
             <button type="submit"><i class="fas fa-plus-circle"></i> Adicionar</button>
         </form>
         
