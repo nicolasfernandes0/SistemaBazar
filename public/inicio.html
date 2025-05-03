@@ -4,137 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bazar Beneficente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #F5AAC8;
-        }
-        h2 {
-            background: rgba(255, 182, 193, 0.5);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .category {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #F5005A;
-            text-align: center;
-            cursor: pointer;
-            width: 100px;
-        }
-        .category:hover {
-            background: #ffb6c1;
-            color: white;
-        }
-        .category i {
-            font-size: 30px;
-            color: #F5AAC8;
-        }
-        .category p {
-            margin: 5px 0 0;
-            font-weight: bold;
-        }
-        form {
-            background: white;
-            color: #333;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        select, input, button {
-            margin: 5px 0;
-            padding: 10px;
-            width: calc(100% - 20px);
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        button {
-            background: #F5AAC8;
-            color: #333;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        button:hover {
-            background: #F2C2CF;
-        }
-        /* Estilo específico para o botão de sair */
-        .btn-sair {
-        background: #F5AAC8;
-        color: #333;
-        padding: 5px 10px;  /* Reduzi o padding */
-        font-size: 12px;   /* Aumentei um pouco o tamanho da fonte para ficar legível */
-        margin-left: 10px;  /* Ajuste a margem conforme necessário */
-        height: auto;      /* Garante que a altura seja automática */
-        width: auto;       /* Garante que a largura seja automática */
-        line-height: 1;    /* Melhora o alinhamento vertical do texto/ícone */
-    }
-    
-    .btn-sair:hover {
-        background: #F2C2CF;
-    }
-    
-    .btn-sair i {
-        font-size: 12px;   /* Ajustei para combinar com o texto */
-        margin-right: 3px; /* Espaço entre ícone e texto */
-    }
-    </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#F6EAEE; border-radius: 10px;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<body><!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #fee8f0;"><!-- faz o menu se expandir em telas grandes e colapsar (virar ícone) em telas pequenas -->
+        <img src="/public/imagens/logo.png">
+        <div class="container-fluid"> <!--cobre toda largura da tela-->
+            <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a><!--marca o título da navbar-->
+          <br><br>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span><!--cria o botão de menu-->
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarNav"><!--indica que o botão será aberto/fechado na próxima div-->
+            <ul class="navbar-nav me-auto"><!--lista de navegação do css-->
+              <li class="nav-item">
+                <a class="nav-link active" href="#" style="color: #333;">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #333;">Contato</a>
+              </li>
+            </ul>
+            <button class="btn btn-sair ms-2" onclick="sair()"><!--deixa o botão "sair" para direita-->
+              <i class="fas fa-sign-out-alt"></i> Sair
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" style="color: #333;">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #333;">Contato</a>
-                    </li>
-                </ul>
-                <!-- Botão de Sair Adicionado Aqui -->
-                <button class="btn btn-sair ms-2" onclick="sair()">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </button>
-            </div>
-        </div>
-    </nav>
+          </div>       
+      </nav>      
+    <!-- Configurações da caixa de venda -->
     <br>
     <br>
     <div class="container">
-        <h3>Vendas</h3>
-
+        <center><h3>Registro de Vendas</h3></center>
+        <script src="script.js"></script>
         <form id="itemForm">
             <input type="number" id="itemValor" placeholder="💰 Valor (R$)" required>
             <input type="date" id="itemData">
@@ -142,43 +48,6 @@
             <input type="text" id="itemTelefone" placeholder="Número de telefone (Opcional)">
             <button type="submit"><i class="fas fa-plus-circle"></i> Adicionar</button>
         </form>
-        
-        <script>
-            // Configura data atual como padrão
-            const data = new Date();
-            const ano = data.getFullYear();
-            const mes = String(data.getMonth() + 1).padStart(2, '0');
-            const dia = String(data.getDate()).padStart(2, '0');
-            const dataFormatada = `${ano}-${mes}-${dia}`;
-            document.getElementById('itemData').value = dataFormatada;
-
-            // Função para sair do sistema redirecionando para index.html
-            function sair() {
-                if(confirm('Tem certeza que deseja sair do sistema?')) {
-                    // Redireciona para a página index.html
-                    window.location.href = 'index.html';
-                }
-            }
-
-            // Adiciona evento de submit ao formulário
-            document.getElementById('itemForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Captura os valores dos campos
-                const valor = document.getElementById('itemValor').value;
-                const data = document.getElementById('itemData').value;
-                const comprador = document.getElementById('itemComprador').value;
-                
-                // Aqui você pode adicionar a lógica para salvar os dados
-                // Exemplo: console.log({valor, data, comprador});
-                
-                // Limpa o formulário após o envio
-                this.reset();
-                document.getElementById('itemData').value = dataFormatada;
-                
-                alert('Item adicionado com sucesso!');
-            });
-        </script>
     </div>
 </body>
 </html>

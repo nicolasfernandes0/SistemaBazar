@@ -1,0 +1,115 @@
+  body {
+        font-family: Arial, sans-serif;
+    }
+    
+    .navbar {
+        background-color: #fee8f0;/*cor de fundo da navbar*/
+      }
+      .btn-sair {/*config do botão sair*/
+        background-color: #e91e63;
+        color: white;
+        border: none;
+      }
+      .btn-sair:hover {/*config para o botão mudar de cor quando clica*/
+        background-color: #c2185b;
+      }      
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #F5AAC8;
+    }
+
+    h2 {
+        background: rgba(255, 182, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .categories {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .category {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #F5005A;
+        text-align: center;
+        cursor: pointer;
+        width: 100px;
+    }
+
+    .category:hover {/*usado para mudar de tom o botão assim que é clicado*/
+        background: #ffb6c1;
+        color: white;
+    }
+
+    .category i {
+        font-size: 30px;
+        color: #F5AAC8;
+    }
+
+    .category p {
+        margin: 5px 0 0;
+        font-weight: bold;
+    }
+
+    form {
+        background: white;
+        color: #333;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    select, input, button {
+        margin: 5px 0;
+        padding: 10px;
+        width: calc(100% - 20px);
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    button {
+        background: #F5AAC8;
+        color: #333;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    button:hover {
+        background: #F2C2CF;
+    }
+
+    /* Estilo específico para o botão de sair */
+    .btn-sair {
+        background: #F5AAC8;
+        color: #333;
+        padding: 5px 10px;  /* Reduzi o padding */
+        font-size: 12px;   /* Aumentei um pouco o tamanho da fonte para ficar legível */
+        margin-left: 10px;  /* Ajuste a margem conforme necessário */
+        height: auto;      /* Garante que a altura seja automática */
+        width: auto;       /* Garante que a largura seja automática */
+        line-height: 1;    /* Melhora o alinhamento vertical do texto/ícone */
+    }
+
+    .btn-sair:hover {
+        background: #F2C2CF;
+    }
+
+    .btn-sair i {
+        font-size: 12px;   /* Ajustei para combinar com o texto */
+        margin-right: 3px; /* Espaço entre ícone e texto */
+    }
