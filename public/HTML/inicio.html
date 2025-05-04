@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bazar Beneficente</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </head>
 <body><!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color: #fee8f0;"><!-- faz o menu se expandir em telas grandes e colapsar (virar ícone) em telas pequenas -->
-        <img src="public/HTML/imagens/logo.png" alt="logo">
+        <img src="/public/HTML/imagens/logo.png" alt="logo" style="margin:10px" width="75" margin-left="10px">
         <div class="container-fluid"> <!--cobre toda largura da tela-->
             <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a><!--marca o título da navbar-->
           <br><br>
@@ -27,7 +26,7 @@
                 <a class="nav-link active" href="#" style="color: #333;">Início</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" style="color: #333;">Contato</a>
+                <a class="nav-link" href="#" style="color: #333;">Relatórios</a>
               </li>
             </ul>
             <button class="btn btn-sair ms-2" onclick="sair()"><!--deixa o botão "sair" para direita-->
@@ -40,14 +39,17 @@
     <br>
     <div class="container">
         <center><h3>Registro de Vendas</h3></center>
-        <script src="script.js"></script>
         <form id="itemForm">
             <input type="number" id="itemValor" placeholder="💰 Valor (R$)" required>
             <input type="date" id="itemData">
             <input type="text" id="itemComprador" placeholder="👤 Nome do Comprador (Opcional)">
             <input type="text" id="itemTelefone" placeholder="Número de telefone (Opcional)">
-            <button type="submit"><i class="fas fa-plus-circle"></i> Adicionar</button>
+            <br><br>
+            <button type="submit" class="btn-adicionar" > Adicionar</button>
         </form>
     </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
