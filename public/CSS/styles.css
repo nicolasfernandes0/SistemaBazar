@@ -1,4 +1,4 @@
-  body {
+body {
         font-family: Arial, sans-serif;
     }
     
@@ -73,20 +73,23 @@
         margin: 5px 0;
         padding: 10px;
         width: calc(100% - 20px);
-        border-radius: 5px;
-        border: 1px solid #ddd;
+        border-radius: 10px;
+        border: 1px solid #ddd;  
     }
 
     button {
         background: #F5AAC8;
         color: #333;
         font-size: 16px;
-        border: none;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
+    }
+
+    .btn-adicionar{
+        border-radius: 10px;
     }
 
     button:hover {
