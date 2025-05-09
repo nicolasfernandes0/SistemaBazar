@@ -157,3 +157,25 @@ body {
         font-family: monospace;
         word-break: break-word;
     }
+    .currency-input {
+      position: relative;
+      display: inline-block;
+    }
+
+    .currency-input input {
+      padding-left: 35px;
+      height: 30px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid black;
+    }
+
+    .currency-input span {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: black;
+      pointer-events: none;
+    }
