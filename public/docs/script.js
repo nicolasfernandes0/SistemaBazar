@@ -18,8 +18,7 @@
 
       // Função para mostrar mensagens de status
       function showStatus(message, type, details = '') {
-          statusMessage.innerHTML = message + 
-              (details ? `<div class="error-details">${details}</div>` : '');
+          statusMessage.innerHTML = message + (details ? `<div class="error-details">${details}</div>` : '');
           statusMessage.className = 'status-message ' + type;
           
           // Rolagem automática para a mensagem
@@ -88,8 +87,7 @@
               });
 
               // Mensagem de sucesso com ID do documento
-              showStatus("Venda registrada com sucesso!", "success", 
-                       `ID do documento: ${docRef.id}`);
+              showStatus("Venda registrada com sucesso!", "success");
               
               // Limpa o formulário
               form.reset();
