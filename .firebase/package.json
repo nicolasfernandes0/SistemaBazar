@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "firebase": "^11.7.1"
+    "csv-stringify": "^6.5.2",
+    "firebase-admin": "^13.3.0"
   }
 }
