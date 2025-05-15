@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Anotações - Bazar São Jerônimo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/public/CSS/anotacoes.css">
+</head>
+<body>
+  <h1>Anotações do Bazar 📝</h1>
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Buscar por palavra-chave...">
+    <button onclick="searchNotes()">🔍 Buscar</button>
+    <button onclick="addNote()">➕ Nova Anotação</button>
+    <button onclick="showNewTask()">➕ Nova Tarefa</button>
+  </div>
+
+  <div id="notes" class="note-container"></div>
+  <div id="tasks" class="task-container"></div>
+
+  <script src="/public/JS/anotacoes.js"></script>
+</body>
+</html>
