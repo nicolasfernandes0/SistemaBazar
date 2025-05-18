@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,26 +44,45 @@
                 <button class="btn btn-sair ms-2" onclick="sair()">
                     <i class="fas fa-sign-out-alt"></i> Sair
                 </button>
-            </div>       
-        </nav>
+            </div>
+        </div>     
+    </nav>
 
-        <div class="promocoes-container">
-            <form action="">
-                <div>
-                    <label for="">Data</label>
-                    <input type="text" id="data" placeholder="Digite a data da promoção">
-                </div>
-                <div>
-                    <label for="">Porcentagem</label>
-                    <input type="text" id="porcentagem" placeholder="Exemplo: 10%">
-                </div>
-                <div>    
-                    <label for="">Produtos</label>
-                    <input type="text" id="porcentagem" placeholder="Insiro o nome do produto">
-                </div>
-            </form>
+    <form id="promoForm">
+        <label>Data da Promoção: <input type="date" id="promoDate"></label>
+        <br>
+        <label>Desconto (%): <input type="number" id="promoDiscount" min="1" max="100"></label><br>
+        <label>Categorias:</label>
+        <div id="categoriesContainer">
+            <input type="text" class="categoryInput" placeholder="Ex: Camisas">
         </div>
+        <button type="button" onclick="addCategory()">Adicionar Categoria</button>
+        <br><br>
+        <button type="submit">Enviar Promoção</button>
+    </form>
+        <!-- Firebase App (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-        <script src="/public/JS/promocoes.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"> // inicializa o EmailJS
+    </script>
+
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyBg_LBg0LoH7ADKPHN571ARxEjhgUN2TmE",
+        authDomain: "bazar-46805.firebaseapp.com",
+        projectId: "bazar-46805",
+        storageBucket: "bazar-46805.appspot.com",
+        messagingSenderId: "296506105856",
+        appId: "1:296506105856:web:bb261ba6c4a2406d52b8e5"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <!-- Seu script -->
+    <script src="/public/JS/promocoes.js"></script>
+
 </body>
 </html>
