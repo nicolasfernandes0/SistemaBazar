@@ -2,9 +2,10 @@ body {
 font-family: Arial, sans-serif;
 }
 
-.navbar {
-background-color: #fee8f0;/*cor de fundo da navbar*/
+.navbar-custom {
+background-color: #fee8fe;/*cor de fundo da navbar*/
 }
+
 .btn-sair {/*config do botão sair*/
 background-color: #e91e63;
 color: white;
@@ -12,14 +13,19 @@ border: none;
 }
 .btn-sair:hover {/*config para o botão mudar de cor quando clica*/
 background-color: #c2185b;
-}      
-.container {
+}     
+
+.container-alt {
 max-width: 600px;
 margin: auto;
 background: rgba(255, 255, 255, 0.7);
 padding: 20px;
 border-radius: 10px;
 box-shadow: 0 0 15px #F5AAC8;
+}
+
+select {
+    max-width: auto;
 }
 
 h2 {
@@ -92,6 +98,15 @@ gap: 8px;
 border-radius: 10px;
 }
 
+.btn-categoria {
+border-radius: 10px;
+background-color: #F2C2CF;
+}
+
+.btn-enviarpromo {
+border-radius: 10px;
+}
+
 button:hover {
 background: #F2C2CF;
 }
@@ -157,3 +172,8 @@ margin-top: 5px;
 font-family: monospace;
 word-break: break-word;
 }
+
+input {
+    max-width: auto;
+}
+

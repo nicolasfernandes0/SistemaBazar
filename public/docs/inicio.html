@@ -48,19 +48,39 @@
     <!-- Configurações da caixa de venda -->
     <br>
     <br>
-    <div class="container">
+    <div class="container-alt">
         <center><h3>Registro de Vendas</h3></center>
         <form id="itemForm">
-            <input type="text" id="itemValor" value="R$ 0,00">
-            <input type="date" id="itemData" >
-            <input type="text" id="itemComprador" placeholder="👤 Nome do Comprador (Opcional)">
-            <input type="text" id="itemTelefone" placeholder="📞 Número de telefone (Opcional)">
-            <input type="email" id="itemEmail" placeholder="📧 Email (Opcional)">
-            <br><br>
-            <button type="submit" class="btn-adicionar" > Adicionar</button>
+                <label for="itemValor">Valor:</label>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">R$</span> <!-- coloca o R$ dentro da caixa de input do valor-->
+                    <input type="text" class="form-control" id="itemValor" placeholder="💰"> <!-- a classe form-control (do bootstrap) padroniza o tamanho das caixas -->
+                    </div>
+                <label> Forma de pagamento: </label>
+                <select class="form-control">
+                    <option placeholder> Selecione uma opção </option>
+                    <option value="pix"> Pix </option>
+                    <option value="crédito"> Cartão de crédito </option>
+                    <option value="débito"> Cartão de débito </option>
+                    <option value="dinheiro"> Dinheiro </option>
+                </select>
+                <br>
+                <label> Data: </label>
+                    <input class="form-control" type="date" id="itemData">
+                <br> 
+                <label> Nome do comprador: </label>
+                    <input class="form-control" type="text" id="itemComprador" placeholder="👤(Opcional)">
+                <br> 
+                <label> Número de telefone: </label>
+                    <input class="form-control" type="text" id="itemTelefone" placeholder="(Opcional)">
+                <br> 
+                <label> Email: </label>
+                    <input class="form-control" type="text" id="itemEmail" placeholder="(Opcional)">
+                <br><br>
+                    <center> <button type="submit" class="btn-adicionar" > Adicionar</button> </center>
         </form>
     </div>
-    <div id="statusMessage" class="status-message"></div>
+    <div="statusMessage" class="status-message"></div>
     <div class="error-details"></div>
     <script>  
         // Configuração do Firebase
