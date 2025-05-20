@@ -80,7 +80,7 @@
                     <center> <button type="submit" class="btn-adicionar" > Adicionar</button> </center>
         </form>
     </div>
-    <div="statusMessage" class="status-message"></div>
+    <div id="statusMessage" class="status-message"></div>
     <div class="error-details"></div>
     <script>  
         // Configuração do Firebase
@@ -142,6 +142,7 @@
             try {
                 // Captura os valores dos campos
                 const valor = parseFloat(document.getElementById('itemValor').value);
+                const formaPagamento = document.querySelector('select.form-control').value;
                 const data = document.getElementById('itemData').value;
                 const comprador = document.getElementById('itemComprador').value || 'Anônimo';
                 const telefone = document.getElementById('itemTelefone').value || '';
@@ -166,6 +167,7 @@
                 // Salva no Firestore
                 const docRef = await db.collection('vendas').add({
                     valor: valor,
+                    formaPagamento: formaPagamento,
                     data: data,
                     comprador: comprador,
                     telefone: telefone,
@@ -229,6 +231,8 @@
             return now.toISOString().split('T')[0];
         }
 
+        document.getElementById('itemData').value = getCurrentDate();
+
         function sair() {
             if(confirm('Tem certeza que deseja sair do sistema?')) {
                 firebase.auth().signOut().then(() => {
@@ -260,9 +264,5 @@
     <!-- Bootstrap JavaScript e dependência Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Scripts do Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
 </body>
 </html>
