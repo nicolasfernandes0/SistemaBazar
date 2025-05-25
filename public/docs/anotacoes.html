@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Anotações - Bazar São Jerônimo</title>
+  <title>Anotações - Bazar São Jerônimo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/public/CSS/anotacoes.css">
+  <!--<link rel="stylesheet" href="/public/CSS/anotacoes.css">-->
+  <link rel="stylesheet" href="/public/CSS/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-custom">
     <img src="/public/docs/imagens/logo.png" alt="logo" style="margin:10px" width="75" margin-left="10px">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a>
@@ -23,13 +25,13 @@
                 <a class="nav-link" href="inicio.html">Início</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="relatorio.html">Relatórios</a>
+                <a class="nav-link" href="relatorio.html">Relatórios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="anotacoes.html">Anotações</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="promocoes.html" style="color: #333;">Promoções</a>
+                <a class="nav-link" href="promocoes.html">Promoções</a>
             </li>
           </ul>
           <button class="btn btn-sair ms-2" onclick="sair()">
@@ -37,12 +39,15 @@
           </button>
       </div>       
   </nav>
-
+  <br> <br> 
+<div class="container-alt">
   <h1>Anotações do Bazar 📝</h1>
   <div class="search-bar">
     <input type="text" id="search" placeholder="Buscar por palavra-chave...">
     <button onclick="searchNotes()">🔍 Buscar</button>
+    <br>
     <button onclick="addNote()">➕ Nova Anotação</button>
+    <br>
     <button onclick="showNewTask()">➕ Nova Tarefa</button>
   </div>
 
