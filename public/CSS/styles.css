@@ -6,15 +6,6 @@ font-family: Arial, sans-serif;
 background-color: #fee8fe;/*cor de fundo da navbar*/
 }
 
-.btn-sair {/*config do botão sair*/
-background-color: #e91e63;
-color: white;
-border: none;
-}
-.btn-sair:hover {/*config para o botão mudar de cor quando clica*/
-background-color: #c2185b;
-}     
-
 .container-alt {
 max-width: 600px;
 margin: auto;
