@@ -3,43 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Anotações - Bazar São Jerônimo</title>
+  <title>Anotações - Bazar São Jerônimo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/public/CSS/anotacoes.css">
+  <!--<link rel="stylesheet" href="/public/CSS/anotacoes.css">-->
+  <link rel="stylesheet" href="/public/CSS/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg">
-        <img src="/public/docs/imagens/logo.png" alt="logo" style="margin:10px" width="75" margin-left="10px"><a class="navbar-brand" style="color: #333;"margin-left="10px">Bazar São Jerônimo</a>  
-
-        <div class="container-fluid">
-      
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="inicio.html">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="relatorio.html">Relatórios</a>
-                    </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" href="relatorio.html">Anotações</a>
-                    </li>
-                </ul>
-                <button class="btn btn-sair ms-2" onclick="sair()">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </button>
-            </div>       
-        </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <img src="/public/docs/imagens/logo.png" alt="logo" style="margin:10px" width="75" margin-left="10px">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="inicio.html">Início</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="relatorio.html">Relatórios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="anotacoes.html">Anotações</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="promocoes.html">Promoções</a>
+            </li>
+          </ul>
+          <button class="btn btn-sair ms-2" onclick="sair()">
+              <i class="fas fa-sign-out-alt"></i> Sair
+          </button>
+      </div>       
+  </nav>
+  <br> <br> 
+<div class="container-alt">
   <h1>Anotações do Bazar 📝</h1>
   <div class="search-bar">
     <input type="text" id="search" placeholder="Buscar por palavra-chave...">
     <button onclick="searchNotes()">🔍 Buscar</button>
+    <br>
     <button onclick="addNote()">➕ Nova Anotação</button>
+    <br>
     <button onclick="showNewTask()">➕ Nova Tarefa</button>
   </div>
 
   <div id="notes" class="note-container"></div>
   <div id="tasks" class="task-container"></div>
+
+  <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script> <!--não tirar esse script daqui-->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script><!--não tirar esse script daqui-->
+
+<script>/*não tirar esse script daqui*/
+  const firebaseConfig = {
+    apiKey: "AIzaSyBg_LBg0LoH7ADKPHN571ARxEjhgUN2TmE",
+    authDomain: "bazar-46805.firebaseapp.com",
+    projectId: "bazar-46805",
+    storageBucket: "bazar-46805.appspot.com",
+    messagingSenderId: "296506105856",
+    appId: "1:296506105856:web:bb261ba6c4a2406d52b8e5"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
 
   <script src="/public/JS/anotacoes.js"></script>
 </body>

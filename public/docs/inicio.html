@@ -15,7 +15,7 @@
     
 </head>
 <body><!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #fee8f0;"><!-- faz o menu se expandir em telas grandes e colapsar (virar ícone) em telas pequenas -->
+    <nav class="navbar navbar-expand-lg navbar-custom"><!-- faz o menu se expandir em telas grandes e colapsar (virar ícone) em telas pequenas -->
         <img src="/public/docs/imagens/logo.png" alt="logo" style="margin:10px" width="75" margin-left="10px">
         <div class="container-fluid"> <!--cobre toda largura da tela-->
             <a class="navbar-brand" href="#" style="color: #333;">Bazar São Jerônimo</a><!--marca o título da navbar-->
@@ -28,16 +28,16 @@
           <div class="collapse navbar-collapse" id="navbarNav"><!--indica que o botão será aberto/fechado na próxima div-->
             <ul class="navbar-nav me-auto"><!--lista de navegação do css-->
                 <li class="nav-item">
-                    <a class="nav-link active" href="inicio.html" style="color: #333;">Início</a>
+                    <a class="nav-link active" href="inicio.html">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="relatorio.html" style="color: #333;">Relatórios</a>
+                    <a class="nav-link" href="relatorio.html">Relatórios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="anotacoes.html" style="color: #333;">Anotações</a>
+                    <a class="nav-link" href="anotacoes.html">Anotações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="promocoes.html" style="color: #333;">Promoções</a>
+                    <a class="nav-link" href="promocoes.html">Promoções</a>
                 </li>
             </ul>
             <button class="btn btn-sair ms-2" onclick="sair()"><!--deixa o botão "sair" para direita-->
@@ -48,194 +48,221 @@
     <!-- Configurações da caixa de venda -->
     <br>
     <br>
-    <div class="container">
+    <div class="container-alt">
         <center><h3>Registro de Vendas</h3></center>
         <form id="itemForm">
-            <input type="text" id="itemValor" value="R$ 0,00">
-            <input type="date" id="itemData" >
-            <input type="text" id="itemComprador" placeholder="👤 Nome do Comprador (Opcional)">
-            <input type="text" id="itemTelefone" placeholder="📞 Número de telefone (Opcional)">
-            <input type="email" id="itemEmail" placeholder="📧 Email (Opcional)">
-            <br><br>
-            <button type="submit" class="btn-adicionar" > Adicionar</button>
+                <label for="itemValor">Valor:</label>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">R$</span> <!-- coloca o R$ dentro da caixa de input do valor-->
+                    <input type="text" class="form-control" id="itemValor" placeholder="💰"> <!-- a classe form-control (do bootstrap) padroniza o tamanho das caixas -->
+                    </div>
+                <label> Forma de pagamento: </label>
+                <select class="form-control">
+                    <option placeholder> Selecione uma opção </option>
+                    <option value="pix"> Pix </option>
+                    <option value="crédito"> Cartão de crédito </option>
+                    <option value="débito"> Cartão de débito </option>
+                    <option value="dinheiro"> Dinheiro </option>
+                </select>
+                <br>
+                <label> Data: </label>
+                    <input class="form-control" type="date" id="itemData">
+                <br> 
+                <label> Nome do comprador: </label>
+                    <input class="form-control" type="text" id="itemComprador" placeholder="👤(Opcional)">
+                <br> 
+                <label> Número de telefone: </label>
+                    <input class="form-control" type="text" id="itemTelefone" placeholder="(Opcional)">
+                <br> 
+                <label> Email: </label>
+                    <input class="form-control" type="text" id="itemEmail" placeholder="(Opcional)">
+                <br><br>
+                    <center> <button type="submit" class="btn-adicionar" > Adicionar</button> </center>
         </form>
     </div>
     <div id="statusMessage" class="status-message"></div>
     <div class="error-details"></div>
     <script>  
-      // Configuração do Firebase
-      const firebaseConfig = {
-          apiKey: "AIzaSyBg_LBg0LoH7ADKPHN571ARxEjhgUN2TmE",
-          authDomain: "bazar-46805.firebaseapp.com",
-          projectId: "bazar-46805",
-          storageBucket: "bazar-46805.firebasestorage.app",
-          messagingSenderId: "296506105856",
-          appId: "1:296506105856:web:bb261ba6c4a2406d52b8e5"
-      };
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBg_LBg0LoH7ADKPHN571ARxEjhgUN2TmE",
+            authDomain: "bazar-46805.firebaseapp.com",
+            projectId: "bazar-46805",
+            storageBucket: "bazar-46805.firebasestorage.app",
+            messagingSenderId: "296506105856",
+            appId: "1:296506105856:web:bb261ba6c4a2406d52b8e5"
+        };
 
-      // Inicialize o Firebase
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
+        // Inicialize o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
 
-      // Elementos da UI
-      const statusMessage = document.getElementById('statusMessage');
-      const form = document.getElementById('itemForm');
+        // Elementos da UI
+        const statusMessage = document.getElementById('statusMessage');
+        const form = document.getElementById('itemForm');
 
-      // Função para mostrar mensagens de status
-      function showStatus(message, type, details = '') {
-          statusMessage.innerHTML = message + (details ? `<div class="error-details">${details}</div>` : '');
-          statusMessage.className = 'status-message ' + type;
-          
-          // Rolagem automática para a mensagem
-          statusMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+        // Função para mostrar mensagens de status
+        function showStatus(message, type, details = '') {
+            statusMessage.innerHTML = message + (details ? `<div class="error-details">${details}</div>` : '');
+            statusMessage.className = 'status-message ' + type;
+            
+            // Rolagem automática para a mensagem
+            statusMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
-      // Função para traduzir erros comuns do Firebase
-      function translateFirebaseError(error) {
-          const errorMap = {
-              'permission-denied': 'Permissão negada: Você não tem acesso ao banco de dados',
-              'unauthenticated': 'Não autenticado: Faça login novamente',
-              'invalid-argument': 'Dados inválidos foram enviados',
-              'not-found': 'Coleção não encontrada',
-              'already-exists': 'Documento já existe',
-              'resource-exhausted': 'Limite de cota excedido',
-              'failed-precondition': 'Operação não permitida no estado atual',
-              'aborted': 'Operação abortada',
-              'unavailable': 'Serviço indisponível no momento',
-              'internal': 'Erro interno do servidor'
-          };
-          
-          return errorMap[error.code] || error.message;
-      }
+        // Função para traduzir erros comuns do Firebase
+        function translateFirebaseError(error) {
+            const errorMap = {
+                'permission-denied': 'Permissão negada: Você não tem acesso ao banco de dados',
+                'unauthenticated': 'Não autenticado: Faça login novamente',
+                'invalid-argument': 'Dados inválidos foram enviados',
+                'not-found': 'Coleção não encontrada',
+                'already-exists': 'Documento já existe',
+                'resource-exhausted': 'Limite de cota excedido',
+                'failed-precondition': 'Operação não permitida no estado atual',
+                'aborted': 'Operação abortada',
+                'unavailable': 'Serviço indisponível no momento',
+                'internal': 'Erro interno do servidor'
+            };
+            
+            return errorMap[error.code] || error.message;
+        }
 
-      // Adiciona evento de submit ao formulário
-      form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          
-          // Mostra mensagem de conexão
-          showStatus("🔌 Conectando ao banco de dados...", "connecting");
-          
-          // Desabilita o botão para evitar múltiplos cliques
-          const submitButton = form.querySelector('button[type="submit"]');
-          submitButton.disabled = true;
+        // Adiciona evento de submit ao formulário
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Mostra mensagem de conexão
+            showStatus("🔌 Conectando ao banco de dados...", "connecting");
+            
+            // Desabilita o botão para evitar múltiplos cliques
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
 
-          try {
-              // Captura os valores dos campos
-              const valor = parseFloat(document.getElementById('itemValor').value);
-              const data = document.getElementById('itemData').value;
-              const comprador = document.getElementById('itemComprador').value || 'Anônimo';
-              const telefone = document.getElementById('itemTelefone').value || '';
-              const email = document.getElementById('itemEmail').value || '';
+            try {
+                // Captura os valores dos campos
+                const valor = parseFloat(document.getElementById('itemValor').value);
+                const formaPagamento = document.querySelector('select.form-control').value;
+                const data = document.getElementById('itemData').value;
+                const comprador = document.getElementById('itemComprador').value || 'Anônimo';
+                const telefone = document.getElementById('itemTelefone').value || '';
+                const email = document.getElementById('itemEmail').value || '';
 
-              // Validação avançada
-              if (isNaN(valor)) {
-                  throw new Error('O valor deve ser um número');
-              }
-              
-              if (valor <= 0) {
-                  throw new Error('O valor deve ser maior que zero');
-              }
-              
-              if (!data) {
-                  throw new Error('A data é obrigatória');
-              }
+                // Validação avançada
+                if (isNaN(valor)) {
+                    throw new Error('O valor deve ser um número');
+                }
+                
+                if (valor <= 0) {
+                    throw new Error('O valor deve ser maior que zero');
+                }
+                
+                if (!data) {
+                    throw new Error('A data é obrigatória');
+                }
 
-              // Mostra que está enviando dados
-              showStatus("📤 Enviando dados para o servidor...", "connecting");
+                // Mostra que está enviando dados
+                showStatus("📤 Enviando dados para o servidor...", "connecting");
 
-              // Salva no Firestore
-              const docRef = await db.collection('vendas').add({
-                  valor: valor,
-                  data: data,
-                  comprador: comprador,
-                  telefone: telefone,
-                  email: email,
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp()
-              });
+                // Salva no Firestore
+                const docRef = await db.collection('vendas').add({
+                    valor: valor,
+                    formaPagamento: formaPagamento,
+                    data: data,
+                    comprador: comprador,
+                    telefone: telefone,
+                    email: email,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
 
-              // Mensagem de sucesso com ID do documento
-              showStatus("Venda registrada com sucesso!", "success");
-              
-              // Limpa o formulário
-              form.reset();
-              document.getElementById('itemData').value = getCurrentDate();
-              
-              // Oculta a mensagem após 5 segundos
-              setTimeout(() => {
-                  statusMessage.style.display = 'none';
-              }, 5000);
-              
-          } catch (error) {
-              console.error("Erro detalhado:", error);
-              
-              // Mensagem de erro detalhada
-              let errorMessage = "❌ Erro ao registrar venda";
-              let errorDetails = "";
-              
-              if (error.code) {
-                  // Erro do Firebase
-                  errorMessage = translateFirebaseError(error);
-                  errorDetails = `Código: ${error.code}\nMensagem: ${error.message}`;
-                  
-                  // Se for erro de permissão, sugere ação
-                  if (error.code === 'permission-denied') {
-                      errorDetails += "\n\nVerifique se você está logado e tem permissões suficientes.";
-                  }
-              } else {
-                  // Erro de validação ou outro erro JavaScript
-                  errorDetails = error.message;
-              }
-              
-              showStatus(errorMessage, "error", errorDetails);
-              
-              // Se for erro de conexão, sugere tentar novamente
-              if (error.code === 'unavailable' || error.message.includes('offline')) {
-                  showStatus(`${errorMessage} - Tentando reconectar...`, "warning", errorDetails);
-                  
-                  // Tenta reconectar após 5 segundos
-                  setTimeout(() => {
-                      showStatus("Tentando reconectar ao banco de dados...", "connecting");
-                  }, 5000);
-              }
-              
-          } finally {
-              submitButton.disabled = false;
-          }
-      });
+                // Mensagem de sucesso com ID do documento
+                showStatus("Venda registrada com sucesso!", "success");
+                
+                // Limpa o formulário
+                form.reset();
+                document.getElementById('itemData').value = getCurrentDate();
+                
+                // Oculta a mensagem após 5 segundos
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                console.error("Erro detalhado:", error);
+                
+                // Mensagem de erro detalhada
+                let errorMessage = "❌ Erro ao registrar venda";
+                let errorDetails = "";
+                
+                if (error.code) {
+                    // Erro do Firebase
+                    errorMessage = translateFirebaseError(error);
+                    errorDetails = `Código: ${error.code}\nMensagem: ${error.message}`;
+                    
+                    // Se for erro de permissão, sugere ação
+                    if (error.code === 'permission-denied') {
+                        errorDetails += "\n\nVerifique se você está logado e tem permissões suficientes.";
+                    }
+                } else {
+                    // Erro de validação ou outro erro JavaScript
+                    errorDetails = error.message;
+                }
+                
+                showStatus(errorMessage, "error", errorDetails);
+                
+                // Se for erro de conexão, sugere tentar novamente
+                if (error.code === 'unavailable' || error.message.includes('offline')) {
+                    showStatus(`${errorMessage} - Tentando reconectar...`, "warning", errorDetails);
+                    
+                    // Tenta reconectar após 5 segundos
+                    setTimeout(() => {
+                        showStatus("Tentando reconectar ao banco de dados...", "connecting");
+                    }, 5000);
+                }
+                
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
 
-      // Funções auxiliares
-      function getCurrentDate() {
-          const now = new Date();
-          return now.toISOString().split('T')[0];
-      }
+        // Funções auxiliares
+        function getCurrentDate() {
+            const now = new Date();
+            return now.toISOString().split('T')[0];
+        }
 
-      function sair() {
-          if(confirm('Tem certeza que deseja sair do sistema?')) {
-              firebase.auth().signOut().then(() => {
-                  window.location.href = 'index.html';
-              });
-          }
-      }
+        document.getElementById('itemData').value = getCurrentDate();
 
-      // Monitora o estado da conexão
-      firebase.firestore().enableNetwork()
-          .then(() => console.log("Online"))
-          .catch(err => console.error("Erro de conexão:", err));
+        function sair() {
+            if(confirm('Tem certeza que deseja sair do sistema?')) {
+                firebase.auth().signOut().then(() => {
+                    window.location.href = 'index.html';
+                });
+            }
+        }
 
-      // Verificação de autenticação
-      firebase.auth().onAuthStateChanged((user) => {
-          if (!user) {
-              window.location.href = 'index.html';
-          } else {
-              // Verifica permissões ao carregar a página
-              db.collection('vendas').limit(1).get()
-                  .then(() => console.log("Permissões OK"))
-                  .catch(err => {
-                      showStatus("Verifique suas permissões de acesso", "warning", 
-                               translateFirebaseError(err));
-                  });
-          }
-      });
-  </script>
+        // Monitora o estado da conexão
+        firebase.firestore().enableNetwork()
+            .then(() => console.log("Online"))
+            .catch(err => console.error("Erro de conexão:", err));
+
+        // Verificação de autenticação
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'index.html';
+            } else {
+                // Verifica permissões ao carregar a página
+                db.collection('vendas').limit(1).get()
+                    .then(() => console.log("Permissões OK"))
+                    .catch(err => {
+                        showStatus("Verifique suas permissões de acesso", "warning", 
+                                translateFirebaseError(err));
+                    });
+            }
+        });
+    </script>
+    <!-- Bootstrap JavaScript e dependência Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
