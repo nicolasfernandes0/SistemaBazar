@@ -5,48 +5,19 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <link rel="shortcut icon" href="imagens/logo.png" type="logo/png">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: white; }
-        .login-container { 
-            max-width: 400px; 
-            margin: 50px auto; 
-            padding: 30px; 
-            background: white; 
-            border-radius: 8px; 
-            box-shadow: 0 0 15px #F5AAC8;
-        }
-        h2 { text-align: center; color: #333; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input { 
-            width: 100%; 
-            padding: 3px; 
-            border: 1px solid #ddd; 
-            border-radius: 4px; 
-            font-size: 16px;
-        }
-        button { 
-            background-color: #F5AAC8; 
-            color: #333; 
-            padding: 12px; 
-            border: none; 
-            border-radius: 4px; 
-            font-size: 16px; 
-            cursor: pointer; 
-            transition: background-color 0.3s;
-        }
-        button:hover { background-color: #F2C2CF; }
-        #message { margin-top: 15px; text-align: center; }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #fee8f0;" width: 100%;>
-  <div class="container-fluid d-flex justify-content-center align-items-center" style="gap: 15px; padding: 10px;">
-    <img src="/public/docs/imagens/logo.png" alt="logo" width="75">
-    <span class="navbar-brand mb-0 h1" style="color: #333;"><center>Sistema de Registro de Vendas do Bazar São Jerônimo</center></span>
-  </div>
-</nav>
-   
+    <body><!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #fee8f0;">
+        <div class="container-fluid">
+            <img src="/public/docs/imagens/logo.png" alt="logo" style="margin:10px;" width="100">
+            <a class="navbar-brand"  style="color: #333;">Bazar São Jerônimo</a>
+             <!--cobre toda largura da tela-->
+        </div>
+    </nav>   
     <br><br>
     <div class="login-container">
         <h2>Login</h2>
