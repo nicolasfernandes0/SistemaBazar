@@ -75,7 +75,7 @@ border: 1px solid #ddd;
 }
 
 button {
-background: #F5AAC8;
+background: #F2C2CF;
 color: #333;
 font-size: 16px;
 cursor: pointer;
@@ -104,7 +104,7 @@ background: #F2C2CF;
 
 /* Estilo específico para o botão de sair */
 .btn-sair {
-background: #F5AAC8;
+background: #F2C2CF;
 color: #333;
 padding: 5px 10px;  /* Reduzi o padding */
 font-size: 12px;   /* Aumentei um pouco o tamanho da fonte para ficar legível */
@@ -145,7 +145,7 @@ display: block;
 border-left: 4px solid #28a745;
 }
 .error {
-background-color: #f8d7da;
+background-color: #F2C2CF;
 color: #721c24;
 display: block;
 border-left: 4px solid #dc3545;
@@ -170,7 +170,7 @@ word-break: break-word;
             padding: 30px; 
             background: white; 
             border-radius: 8px; 
-            box-shadow: 0 0 15px #F5AAC8;
+            box-shadow: 0 0 15px #F2C2CF;
         }
         h2 { text-align: center; color: #333; }
         button { 
