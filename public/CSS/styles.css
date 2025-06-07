@@ -160,6 +160,7 @@ color: #856404;
 display: block;
 border-left: 4px solid #ffc107;
 }
+
 /* Estilo para detalhes do erro */
 .error-details {
 font-size: 12px;
@@ -167,6 +168,7 @@ margin-top: 5px;
 font-family: monospace;
 word-break: break-word;
 }
+
 /*config da pagina index*/
 .login-container { 
     max-width: 400px; 
@@ -182,6 +184,3 @@ word-break: break-word;
  align-items: center;
  justify-content: center;
 }
-
-
-
