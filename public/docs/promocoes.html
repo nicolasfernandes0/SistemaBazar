@@ -50,17 +50,25 @@
   <br><br>
   <div class="container-alt">
   <center><h1>Promoções</h1></center>
-
+    <form id="promoForm">
+        <label>Data da Promoção: </label> 
+            <input class="form-control" type="date" id="promoDate">
+        <br>
+        <label>Desconto (%): </label>
+            <input class="form-control" type="number" id="promoDiscount" min="1" max="100">
+        <br>
+        <label>Categorias: </label>
+        <div id="categoriesContainer">
+            <input type="text" class="form-control" class="categoryInput" placeholder="Ex: Camisas">
+        </div>
+        <br> 
+        <button type="button" class="btn-categoria" onclick="addCategory()">Adicionar outra categoria</button>
+        <br><br>
+        <center> <button type="submit" class="btn-enviarpromo">Enviar Promoção</button> </center>
+    </form>
     <!-- Container para as promoções já criadas -->
     <div id="listaPromocoes">
       <!-- As novas promoções serão inseridas aqui acima do formulário -->
-    </div>
-
-    <!-- Área para inserir a nova promoção -->
-    <div id="inputArea" class="search-bar">
-      <br>
-      <input type="text" id="promoInput" placeholder="Digite a promoção" />
-      <button id="novaPromocoao">➕ Nova Promoção</button>
     </div>
   </div>
 
