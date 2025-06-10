@@ -182,3 +182,25 @@ word-break: break-word;
             font-size: 16px; 
             cursor: pointer;         
         }
+#calendar { max-width: 900px; 
+    margin: 40px auto;               
+    background-color:white;
+    border-color: #bf360c;
+    stop-color: #9c27b0; 
+}
+  .fc-daygrid-day-number {
+    color: #e91e63; /* rosa */
+    font-weight: bold;
+  }
+
+  /* Opcional: mudar o dia atual */
+  .fc-day-today .fc-daygrid-day-number {
+    background-color: #e91e63;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+  }
+  .fc-col-header-cell-cushion {
+    color: #e91e63; /* azul */
+    font-weight: bold;
+  }
